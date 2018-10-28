@@ -1,0 +1,7 @@
+{
+  "name": "wp-ion-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
