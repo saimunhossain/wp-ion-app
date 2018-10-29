@@ -15,4 +15,17 @@
     </ion-slide>
   </ion-slides>
 </ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-slides>
+      <ion-slide *ngFor="let product of products">
+        <ion-card no-padding>
+          <img [src]="product.featured_src" alt="">
+          <h1>{{ product.title }}</h1>
+          <p>{{ product.short_description }}</p>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+</ion-grid>
 </ion-content>
