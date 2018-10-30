@@ -11,16 +11,22 @@ export class HomePage {
 
   WooCommerce: any;
   products: any[];
+  moreProducts: any[];
+  page: number;
 
   @ViewChild('productSlides') productSlides:Slides;
 
   constructor(public navCtrl: NavController) {
+
+    this.page = 2;
 
     this.WooCommerce = WC({
       url: "http://rafidfeed.com",
       consumerKey: "ck_d9e1d9540aa7fdc421eae68dc456c18294f54658",
       consumerSecret: "cs_d5d8c3819670edc5baefcc2fba077d7bc2bb501e"
     });
+
+    this.loadMoreProducts()
 
     this.WooCommerce.getAsync("products").then((data) => {
         console.log(JSON.parse(data.body));
@@ -40,6 +46,16 @@ export class HomePage {
 
     this.productSlides.slideNext();
    }, 3000)
+  }
+
+  loadMoreProducts(){
+    this.WooCommerce.getAsync("products?page=" + this.page).then((data) => {
+      console.log(JSON.parse(data.body));
+      this.moreProducts = JSON.parse(data.body).products;
+  }, (err) => {
+    console.log(err);
+    
+  })
   }
 
 }
