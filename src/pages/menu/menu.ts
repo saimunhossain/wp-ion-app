@@ -8,12 +8,12 @@ import { HomePage } from '../home/home';
 })
 export class Menu {
 
-  homePage: Component;
+  homePage: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.homePage = HomePage;
+    this.homePage = HomePage
   }
- 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad Menu');
   }
