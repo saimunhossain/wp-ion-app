@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Slides } from 'ionic-angular';
+import { NavController, Slides, ToastController } from 'ionic-angular';
 
 import * as WC from 'woocommerce-api';
 
@@ -16,7 +16,7 @@ export class HomePage {
 
   @ViewChild('productSlides') productSlides:Slides;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController) {
 
     this.page = 2;
 
@@ -26,7 +26,7 @@ export class HomePage {
       consumerSecret: "cs_d5d8c3819670edc5baefcc2fba077d7bc2bb501e"
     });
 
-    this.loadMoreProducts()
+    this.loadMoreProducts(null)
 
     this.WooCommerce.getAsync("products").then((data) => {
         console.log(JSON.parse(data.body));
@@ -48,10 +48,31 @@ export class HomePage {
    }, 3000)
   }
 
-  loadMoreProducts(){
+  loadMoreProducts(event){
+
+    if(event == null){
+      this.page = 2
+      this.moreProducts = [];
+    }
+    else
+      this.page ++;
+
     this.WooCommerce.getAsync("products?page=" + this.page).then((data) => {
       console.log(JSON.parse(data.body));
-      this.moreProducts = JSON.parse(data.body).products;
+      this.moreProducts = this.moreProducts.concat(JSON.parse(data.body).products);
+
+      if(event != null){
+        event.complete();
+      }
+
+      if(JSON.parse(data.body).products.length < 10){
+        event.enable(false);
+
+        this.toastCtrl.create({
+          message: "No more products avaialable!",
+          duration: 3000
+        }).present();
+      }
   }, (err) => {
     console.log(err);
     
