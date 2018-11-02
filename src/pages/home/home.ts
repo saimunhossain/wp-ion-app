@@ -33,7 +33,6 @@ export class HomePage {
         this.products = JSON.parse(data.body).products;
     }, (err) => {
       console.log(err);
-      
     })
 
   }
