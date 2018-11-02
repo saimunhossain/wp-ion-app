@@ -5,9 +5,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="card-background-page">
+
+    <ion-card>
+      <img src="./assets/images/ecom.png">
+      <div class="card-title">WP ION APP</div>
+    <div class="card-subtitle">Best shop in your town</div>
+    </ion-card>
+
     <ion-list>
       <ion-item *ngFor="let category of categories">
+        <ion-icon [name]="category.icon" item-left large></ion-icon>
         <h1>{{ category.name }}</h1>
         <p>{{ category.description }}</p>
         <p></p>
