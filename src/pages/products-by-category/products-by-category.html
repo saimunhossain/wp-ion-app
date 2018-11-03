@@ -22,5 +22,9 @@
             <ion-icon name="arrow-forward"></ion-icon>
           </button>
         </ion-item>
-      </ion-list>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
