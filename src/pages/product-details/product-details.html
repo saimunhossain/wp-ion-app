@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>{{ product.title }}</ion-title>
   </ion-navbar>
 
@@ -28,7 +28,7 @@
 
     <p [innerHTML]="product.description"></p>
 
-    <button ion-button ion-left block outline color="primary">
+    <button ion-button ion-left block outline color="primary" (click)="addToCart(product)">
       <ion-icon name="basket"></ion-icon>Add to Cart
     </button>
 
