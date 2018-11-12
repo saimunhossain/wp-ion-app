@@ -31,9 +31,7 @@ export class CartPage {
         } else {
 
           this.showEmptyCartMessage = true;
-
         }
-
 
       })
 
