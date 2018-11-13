@@ -19,7 +19,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input type="email" [(ngModel)]="newUser.email"></ion-input>
+      <ion-input type="email" [(ngModel)]="newUser.email" (blur)="checkEmail()"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Username</ion-label>
