@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { SignupPage } from './../signup/signup';
 import * as WC from 'woocommerce-api';
 import { ProductsByCategoryPage } from './../products-by-category/products-by-category';
+import { LoginPage } from './../login/login';
 
 @Component({
   selector: 'page-menu',
@@ -67,6 +68,9 @@ export class Menu {
   openPage(pageName: string){
     if(pageName == "signup"){
       this.navCtrl.push(SignupPage);
+    }
+    if(pageName == "login"){
+      this.navCtrl.push(LoginPage);
     }
   }
 
