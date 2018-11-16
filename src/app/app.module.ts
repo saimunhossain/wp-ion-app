@@ -9,7 +9,8 @@ import { ProductsByCategoryPage } from './../pages/products-by-category/products
 import { ProductDetailsPage } from './../pages/product-details/product-details';
 import { CartPage } from './../pages/cart/cart';
 import { SignupPage } from './../pages/signup/signup';
-import { LoginPage } from './../pages/login/login'
+import { LoginPage } from './../pages/login/login';
+import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,6 +30,7 @@ import { IonicStorageModule } from '@ionic/storage';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
