@@ -37,22 +37,22 @@
      <ion-item>
       <ion-label>Country</ion-label>
       <ion-select [(ngModel)]="newOrder.billing_address.country">
-        <ion-option value="India" selected="true">India</ion-option>
+        <ion-option value="India" selected="true">Bangladesh</ion-option>
       </ion-select>
     </ion-item>
-     <ion-item>
-      <ion-label>State</ion-label>
-      <ion-select [(ngModel)]="newOrder.billing_address.state">
-        <ion-option value="New Delhi">New Delhi</ion-option>
-        <ion-option value="Uttar Pradesh">Uttar Pradesh</ion-option>
-        <ion-option value="Maharashtra">Maharashtra</ion-option>
-        <ion-option value="Tamil Nadu">Tamil Nadu</ion-option>
-        <ion-option value="Madhya Pradesh">Madhya Pradesh</ion-option>
-      </ion-select>
-    </ion-item>
-     <ion-item>
+    <ion-item>
       <ion-label>City</ion-label>
       <ion-input type="text" [(ngModel)]="newOrder.billing_address.city"></ion-input>        
+    </ion-item>
+     <ion-item>
+      <ion-label>Area</ion-label>
+      <ion-select [(ngModel)]="newOrder.billing_address.state">
+        <ion-option value="New Delhi">Gulshan</ion-option>
+        <ion-option value="Uttar Pradesh">Uttara</ion-option>
+        <ion-option value="Maharashtra">Mohammadpur</ion-option>
+        <ion-option value="Tamil Nadu">Mirpur</ion-option>
+        <ion-option value="Madhya Pradesh">Banani</ion-option>
+      </ion-select>
     </ion-item>
      <ion-item>
       <ion-label>Postal Code</ion-label>
@@ -88,22 +88,22 @@
      <ion-item *ngIf="!billing_shipping_same">
       <ion-label>Country</ion-label>
       <ion-select [(ngModel)]="newOrder.shipping_address.country">
-        <ion-option value="India" selected="true">India</ion-option>
+        <ion-option value="India" selected="true">Bangladesh</ion-option>
       </ion-select>
     </ion-item>
-     <ion-item *ngIf="!billing_shipping_same">
-      <ion-label>State</ion-label>
-      <ion-select [(ngModel)]="newOrder.shipping_address.state">
-        <ion-option value="New Delhi">New Delhi</ion-option>
-        <ion-option value="Uttar Pradesh">Uttar Pradesh</ion-option>
-        <ion-option value="Maharashtra">Maharashtra</ion-option>
-        <ion-option value="Tamil Nadu">Tamil Nadu</ion-option>
-        <ion-option value="Madhya Pradesh">Madhya Pradesh</ion-option>
-      </ion-select>
-    </ion-item>
-     <ion-item *ngIf="!billing_shipping_same">
+    <ion-item *ngIf="!billing_shipping_same">
       <ion-label>City</ion-label>
       <ion-input type="text" [(ngModel)]="newOrder.shipping_address.city"></ion-input>        
+    </ion-item>
+     <ion-item *ngIf="!billing_shipping_same">
+      <ion-label>Area</ion-label>
+      <ion-select [(ngModel)]="newOrder.shipping_address.state">
+        <ion-option value="New Delhi">Gulshan</ion-option>
+        <ion-option value="Uttar Pradesh">Uttara</ion-option>
+        <ion-option value="Maharashtra">Mohammadpur</ion-option>
+        <ion-option value="Tamil Nadu">Mirpur</ion-option>
+        <ion-option value="Madhya Pradesh">Banani</ion-option>
+      </ion-select>
     </ion-item>
      <ion-item *ngIf="!billing_shipping_same">
       <ion-label>Postal Code</ion-label>
