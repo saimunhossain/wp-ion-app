@@ -11,6 +11,7 @@ import { CartPage } from './../pages/cart/cart';
 import { SignupPage } from './../pages/signup/signup';
 import { LoginPage } from './../pages/login/login';
 import { CheckoutPage } from './../pages/checkout/checkout';
+import { SearchPage } from './../pages/search/search';
 import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,7 +30,8 @@ import { IonicStorageModule } from '@ionic/storage';
     CartPage,
     SignupPage,
     LoginPage,
-    CheckoutPage
+    CheckoutPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { IonicStorageModule } from '@ionic/storage';
     CartPage,
     SignupPage,
     LoginPage,
-    CheckoutPage
+    CheckoutPage,
+    SearchPage
   ],
   providers: [
     StatusBar,
