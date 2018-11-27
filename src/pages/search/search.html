@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Search</ion-title>
+    <ion-title>Search : {{ searchQuery }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -38,4 +38,7 @@
       </button>
     </ion-item>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
