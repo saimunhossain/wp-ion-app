@@ -8,6 +8,7 @@ import { LoginPage } from './../login/login';
 import { Storage } from '@ionic/storage';
 import { CartPage } from './../cart/cart'
 
+@IonicPage({})
 @Component({
   selector: 'page-menu',
   templateUrl: 'menu.html',

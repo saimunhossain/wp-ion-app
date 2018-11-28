@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { Menu } from '../pages/menu/menu';
 import { ProductsByCategoryPage } from './../pages/products-by-category/products-by-category';
 import { ProductDetailsPage } from './../pages/product-details/product-details';
 import { CartPage } from './../pages/cart/cart';
@@ -24,7 +23,6 @@ import { IonicStorageModule } from '@ionic/storage';
   declarations: [
     MyApp,
     HomePage,
-    Menu,
     ProductsByCategoryPage,
     ProductDetailsPage,
     CartPage,
@@ -43,7 +41,6 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp,
     HomePage,
-    Menu,
     ProductsByCategoryPage,
     ProductDetailsPage,
     CartPage,
