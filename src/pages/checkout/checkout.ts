@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import * as WC from 'woocommerce-api';
-import { HomePage } from '../home/home';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
 
+@IonicPage({})
 @Component({
   selector: 'page-checkout',
   templateUrl: 'checkout.html',
@@ -111,7 +111,7 @@ export class CheckoutPage {
                   buttons: [{
                     text: "OK",
                     handler: () => {
-                      this.navCtrl.setRoot(HomePage);
+                      this.navCtrl.push('HomePage');
                     }
                   }]
                 }).present();
@@ -145,7 +145,7 @@ export class CheckoutPage {
             buttons: [{
               text: "OK",
               handler: () => {
-                this.navCtrl.setRoot(HomePage);
+                this.navCtrl.setRoot('HomePage');
               }
             }]
           }).present();

@@ -1,10 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { SignupPage } from './../signup/signup';
 import * as WC from 'woocommerce-api';
-import { ProductsByCategoryPage } from './../products-by-category/products-by-category';
-import { LoginPage } from './../login/login';
 import { Storage } from '@ionic/storage';
 import { CartPage } from './../cart/cart'
 
@@ -23,7 +19,7 @@ export class Menu {
   user: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public modalCtrl: ModalController) {
-    this.homePage = HomePage
+    this.homePage = 'HomePage';
     this.categories = [];
     this.user = {};
 
@@ -82,15 +78,15 @@ export class Menu {
   }
 
   openCategoryPage(category){
-    this.childNavCtrl.setRoot(ProductsByCategoryPage, {"category": category});
+    this.childNavCtrl.setRoot('ProductsByCategoryPage', {"category": category});
   }
 
   openPage(pageName: string){
     if(pageName == "signup"){
-      this.navCtrl.push(SignupPage);
+      this.navCtrl.push('SignupPage');
     }
     if(pageName == "login"){
-      this.navCtrl.push(LoginPage);
+      this.navCtrl.push('LoginPage');
     }
     if(pageName == 'logout'){
       this.storage.remove("userLoginInfo").then(() => {
