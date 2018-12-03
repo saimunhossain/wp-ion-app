@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import * as WC from 'woocommerce-api';
 import { Storage } from '@ionic/storage';
-import { CartPage } from './../cart/cart'
+import { CartPage } from './../cart/cart';
+import { WoocommerceProvider } from '../../providers/woocommerce/woocommerce';
 
 @IonicPage({})
 @Component({
@@ -18,16 +18,12 @@ export class Menu {
   loggedIn: boolean;
   user: any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public modalCtrl: ModalController, private WP: WoocommerceProvider) {
     this.homePage = 'HomePage';
     this.categories = [];
     this.user = {};
 
-    this.WooCommerce = WC({
-      url: "http://rafidfeed.com",
-      consumerKey: "ck_d9e1d9540aa7fdc421eae68dc456c18294f54658",
-      consumerSecret: "cs_d5d8c3819670edc5baefcc2fba077d7bc2bb501e"
-    });
+    this.WooCommerce = WP.init();
 
     this.WooCommerce.getAsync("products/categories").then((data) => {
       console.log(JSON.parse(data.body).product_categories);
