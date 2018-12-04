@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { Storage } from '@ionic/storage';
 import * as WC from 'woocommerce-api';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
+import { WoocommerceProvider } from '../../providers/woocommerce/woocommerce';
 
 @IonicPage({})
 @Component({
@@ -18,7 +19,7 @@ export class CheckoutPage {
   billing_shipping_same: boolean;
   userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public alertCtrl: AlertController, public payPal: PayPal) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public alertCtrl: AlertController, public payPal: PayPal, private WP: WoocommerceProvider) {
     this.newOrder = {};
     this.newOrder.billing_address = {};
     this.newOrder.shipping_address = {};
@@ -31,11 +32,7 @@ export class CheckoutPage {
       { method_id: "paypal", method_title: "PayPal" }
     ]
 
-    this.WooCommerce = WC({
-      url: "http://rafidfeed.com",
-      consumerKey: "ck_d9e1d9540aa7fdc421eae68dc456c18294f54658",
-      consumerSecret: "cs_d5d8c3819670edc5baefcc2fba077d7bc2bb501e"
-    });
+    this.WooCommerce = WP.init();
 
     this.storage.get("userLoginInfo").then( (userLoginInfo) => {
         this.userInfo = userLoginInfo.user;

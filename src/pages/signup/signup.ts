@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import * as WC from 'woocommerce-api';
+import { WoocommerceProvider } from '../../providers/woocommerce/woocommerce';
 
 @IonicPage({})
 @Component({
@@ -13,17 +14,14 @@ export class SignupPage {
   billing_shipping_same: boolean;
   WooCommerce:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl:AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl:AlertController, private WP: WoocommerceProvider) {
   
     this.newUser.billing_address = {};
     this.newUser.shipping_address = {};
     this.billing_shipping_same = false;
 
-    this.WooCommerce = WC({
-      url: "http://rafidfeed.com",
-      consumerKey: "ck_d9e1d9540aa7fdc421eae68dc456c18294f54658",
-      consumerSecret: "cs_d5d8c3819670edc5baefcc2fba077d7bc2bb501e"
-    });
+    this.WooCommerce = WP.init();
+
   }
 
   ionViewDidLoad() {

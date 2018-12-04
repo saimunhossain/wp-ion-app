@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, Slides, ToastController } from 'ionic-angular';
 
 import * as WC from 'woocommerce-api';
+import { WoocommerceProvider } from '../../providers/woocommerce/woocommerce';
 
 @IonicPage({})
 @Component({
@@ -18,15 +19,11 @@ export class HomePage {
 
   @ViewChild('productSlides') productSlides:Slides;
 
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, private WP: WoocommerceProvider) {
 
     this.page = 2;
 
-    this.WooCommerce = WC({
-      url: "http://rafidfeed.com",
-      consumerKey: "ck_d9e1d9540aa7fdc421eae68dc456c18294f54658",
-      consumerSecret: "cs_d5d8c3819670edc5baefcc2fba077d7bc2bb501e"
-    });
+    this.WooCommerce = WP.init();
 
     this.loadMoreProducts(null)
 
