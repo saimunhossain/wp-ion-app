@@ -16,6 +16,8 @@ This is an ecommerce mobile app for android and ios platform. The app fetching d
 
 ```git clone https://github.com/saimunhossain/wp-ion-app```
 
+```cd wp-ion-app```
+
 ```npm install```
 
 
