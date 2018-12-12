@@ -13,6 +13,8 @@ import { PayPal } from '@ionic-native/paypal';
 import { IonicStorageModule } from '@ionic/storage';
 import { WoocommerceProvider } from '../providers/woocommerce/woocommerce';
 
+import { OneSignal } from '@ionic-native/onesignal';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -33,6 +35,7 @@ import { WoocommerceProvider } from '../providers/woocommerce/woocommerce';
     StatusBar,
     SplashScreen,
     PayPal,
+    OneSignal,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WoocommerceProvider
   ]
